@@ -1,10 +1,10 @@
 def fib(n):
-    _curr, _next = 0, 1
-    for _ in range(n + 1):
-        yield _curr
-        _curr, _next = _next, _curr + _next
-
+    if n == 0:
+        return 0
+    elif n == 1 or n == 2:
+        return 1
+    else:
+        return fib(n-1) + fib (n - 2)
 n = int(input())
-n = fib(n)
-print ('{}'.format(str(n))
 
+print('Fib({}) = {}'.format(n, fib(n)))

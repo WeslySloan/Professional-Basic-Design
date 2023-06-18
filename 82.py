@@ -4,6 +4,8 @@ def func(x, k):
     result = list(set(a) & set(b))
     result.sort(reverse=True)
     tuple(result)
+    if len(result) == 0:
+        result = ['X']
     return result
 
 if __name__ == '__main__':

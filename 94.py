@@ -1,15 +1,20 @@
-import sys
 import string
 
-def punc_remove(text):
-    #special_char = '!#$%&‚()*+,-./:;<=>?@[\]^_„{|}~'
-    #string.punctuation
-    for ch in string.punctuation:
-        text = text.replace(ch, "")
-    text = text.lower()
-    return text
+char = "'!#$%&‚()*+,-./:;<=>?@[\]^_„{|}~"
 
-st = sys.stdin.readlines()
+text = ""
+while True:
+    try:
+        line = input()
+        if not line:
+            break
+        text += line + "\n"
+    except EOFError:
+        break
 
-for i in st:
-    print(punc_remove(i), end="")
+translator = str.maketrans("", "", char)
+text = text.translate(translator)
+
+text = text.lower()
+
+print(text)
