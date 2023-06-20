@@ -20,7 +20,7 @@ def find_long_login_users():
             elapsed_minute += 60
             elapsed_hour -= 1
 
-        if elapsed_hour >= 2:
+        if elapsed_hour >= 1:  # 2시간 대신 1시간 이상으로 변경
             long_login_users.append((user_id, f"{elapsed_hour:02d}:{elapsed_minute:02d}"))
 
     return long_login_users
@@ -28,4 +28,4 @@ def find_long_login_users():
 
 long_login_users = find_long_login_users()
 for user_id, elapsed_time in long_login_users:
-    print(user_id, elapsed_time)
+    print(f"{user_id} {elapsed_time}")
